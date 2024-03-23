@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR" monitorInterval="30">
+
+	<!-- Logging Properties -->
+	<Properties>
+		<Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n
+		</Property>
+		<Property name="APP_LOG_ROOT">
+			/home/nagaanvesh.k/project/Anvesh/local/logs/
+		</Property>
+	</Properties>
+
+	<Appenders>
+
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+
+		<!-- File Appenders on need basis -->
+		<RollingFile name="allLogs"
+			fileName="${APP_LOG_ROOT}/app.log"
+			filePattern="${APP_LOG_ROOT}/app-%d{yyyy-MM-dd}-%i.log">
+			<LevelRangeFilter minLevel="ERROR" maxLevel="TRACE" />
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="19500KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+
+	</Appenders>
+
+	<Loggers>
+
+		<Root level="all">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="allLogs" />
+		</Root>
+
+	</Loggers>
+
+</Configuration>
