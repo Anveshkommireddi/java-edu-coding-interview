@@ -8,7 +8,7 @@ public class DP_17_Count_SubSets_With_SUM_K {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DP_17_Count_SubSets_With_SUM_K.class);
 
 	public static void main(String[] args) {
-		// int[] input = { 1, 2, 2, 3 }; target = 3;
+		// int[] input = { 1, 2, 2, 3 }; int target = 3;
 		int[] input = { 1, 0, 0 }; // if 0 is present make it to descending order to get correct answer
 		int target = 1;
 		int recCount = countSubSetsRec(input, input.length - 1, target);

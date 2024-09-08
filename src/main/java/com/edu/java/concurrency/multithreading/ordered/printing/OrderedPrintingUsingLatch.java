@@ -24,7 +24,7 @@ public class OrderedPrintingUsingLatch {
 	}
 
 	public void printThird() throws InterruptedException {
-		firstCountDown.await();
+		//firstCountDown.await();
 		secondCountDown.await();
 		System.out.println("third");
 	}

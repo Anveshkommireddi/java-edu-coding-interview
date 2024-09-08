@@ -39,5 +39,33 @@ public class LongestRepeatingWithKReplacements {
 		}
 		return maxFreq;
 	}
+	
+	private static int lrcr(String s, int k) {
+		int result = Integer.MAX_VALUE;
+		Map<Character, Integer> charFreqInfo = new HashMap<>();
+		int start = 0;
+		for (int end = 0; end < s.length(); end++) {
+			char currChar = s.charAt(end);
+			charFreqInfo.put(currChar, charFreqInfo.getOrDefault(currChar, 0) + 1);
+			int highFreq = getHighFreq(charFreqInfo);
+			int currLength = end - start + 1;
+			while (currLength - highFreq > k) {
+				char schar = s.charAt(start);
+				int sfreq = charFreqInfo.get(schar);
+				charFreqInfo.put(schar, sfreq - 1);
+				start++;
+			}
+			result = Math.max(result, end - start + 1);
+		}
+		return result;
+	}
+
+	private static int getHighFreq(Map<Character, Integer> charFreqInfo) {
+		int result = Integer.MIN_VALUE;
+		for (Map.Entry<Character, Integer> entry : charFreqInfo.entrySet()) {
+			result = Math.max(entry.getValue(), result);
+		}
+		return result;
+	}
 
 }

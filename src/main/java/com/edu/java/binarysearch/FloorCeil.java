@@ -9,7 +9,7 @@ public class FloorCeil {
 
 	public static void main(String[] args) {
 		int[] nums = { 3, 5, 8, 15, 19 };
-		int target = 4;
+		int target = 10;
 		int floorIdx = findFloor(nums, target);
 		int ceilIdx = findCeil(nums, target);
 		LOGGER.info("Floor for the target {} is {}", target, floorIdx);

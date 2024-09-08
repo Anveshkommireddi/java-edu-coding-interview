@@ -14,6 +14,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(SurroundedRegions.c
 				  		   { 'X', 'O', 'X', 'O', 'X' },
 				  		   { 'O', 'O', 'X', 'X', 'X' }};
 		char[][] graph = convertSurroundedOsToX(input);
+		System.out.println(graph);
 	}
 
 	private static char[][] convertSurroundedOsToX(char[][] input) {

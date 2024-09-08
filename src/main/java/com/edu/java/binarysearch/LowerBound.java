@@ -4,9 +4,9 @@ public class LowerBound {
 
 	public static void main(String[] args) {
 		int[] nums = { 3, 5, 8, 15, 19 };
-		int target = 20;
+		int target = 10;
 		int resIdx = lowerBound(nums, target);
-		System.out.println(resIdx);
+		System.out.println(nums[resIdx]);
 	}
 
 	private static int lowerBound(int[] nums, int target) {
@@ -22,7 +22,7 @@ public class LowerBound {
 				high = mid - 1;
 			}
 		}
-		return nums[low] < target ? nums.length : low;
+		return high > 0 ? low : nums.length;
 	}
 
 }

@@ -17,8 +17,32 @@ public class GroupAnagrams {
 		List<List<String>> result = groupAnagrams(strs);
 		LOGGER.info("Result is :: {}", result);
 	}
+	
+	public static List<List<String>> groupAnagrams(String[] strs) {
+		List<List<String>> result = new ArrayList<>();
+		Map<String, List<String>> hashWordsInfo = new HashMap<>();
+		for (String word : strs) {
+			int[] freq = new int[26];
+			for (int i = 0; i < word.length(); i++) {
+				char currChar = word.charAt(i);
+				int currIdx = currChar - 'a';
+				freq[currIdx]++;
+			}
+			StringBuilder sb = new StringBuilder();
+			for(int i = 0; i < 26; i++) {
+				sb.append("#");
+				sb.append(freq[i]);
+			}
+			String hash = sb.toString();
+			List<String> anagrams = hashWordsInfo.getOrDefault(hash, new ArrayList<>());
+			anagrams.add(word);
+			hashWordsInfo.put(hash, anagrams);
+		}
+		result.addAll(hashWordsInfo.values());
+		return result;
+	}
 
-	private static List<List<String>> groupAnagrams(String[] input) {
+	private static List<List<String>> groupAnagramsOld(String[] input) {
 		Map<String, List<String>> hashAnagramsMap = new HashMap<>();
 		for (String word : input) {
 			char[] hash = new char[26];

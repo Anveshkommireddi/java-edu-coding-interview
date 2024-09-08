@@ -14,7 +14,7 @@ public class MedianInStream {
 
 	public static void main(String[] args) {
 		// Driver code
-		int[] nums = { 35, 22, 30, 25, 1 };
+		int[] nums = {1, 2, 3, 4};
 		MedianInStream medianOfAges = null;
 		for (int i = 0; i < nums.length; i++) {
 			System.out.print(i + 1);

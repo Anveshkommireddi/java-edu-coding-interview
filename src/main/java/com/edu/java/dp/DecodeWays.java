@@ -12,8 +12,8 @@ public class DecodeWays {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DecodeWays.class);
 
 	public static void main(String[] args) {
-		//String input = "111111111111111111111111111111111111111111111";
-		String input = "226";
+		String input = "111111111111111111111111111111111111111111111";
+		//String input = "226";
 		List<String> currResult = new ArrayList<>();
 		int startIdx = 0;
 		Integer[] mem = new Integer[input.length()+1];
@@ -99,5 +99,35 @@ public class DecodeWays {
 
 		return mem[startIdx] = decodeStringLength;
 	}
+	
+	//latest
+	private static int decodeWaysHelper(String input, int idx, Integer[] mem) {
 
+		if (idx >= input.length()) {
+			return 1;
+		}
+		
+		if(null != mem[idx]) {
+			return mem[idx];
+		}
+
+		int result = 0; 
+		if (input.charAt(idx) != '0') {
+			result += decodeWaysHelper(input, idx + 1, mem);
+		}
+
+		if (isValid(input, idx, idx + 2)) {
+			result += decodeWaysHelper(input, idx + 2, mem);
+		}
+
+		return mem[idx] = result;
+	}
+
+	private static boolean isValid(String input, int start, int end) {
+		if (start + 2 > input.length() || input.charAt(start) == '0')
+			return false;
+		Integer val = Integer.parseInt(input.substring(start, end));
+		return val <= 26;
+	}
+	
 }

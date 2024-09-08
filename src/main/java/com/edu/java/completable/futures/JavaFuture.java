@@ -17,7 +17,6 @@ public class JavaFuture {
 	static ExecutorService executors = Executors.newFixedThreadPool(5);
 
 	public static void main(String[] args) {
-
 		Future<Integer> futureInteger = executors.submit(() -> {
 			try {
 				LOGGER.info("Thread started to sleep ......");

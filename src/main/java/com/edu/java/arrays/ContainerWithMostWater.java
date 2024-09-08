@@ -31,4 +31,22 @@ public class ContainerWithMostWater {
 		return result;
 	}
 
+	private static int maxWaterTest2(int[] arr) {
+		int result = Integer.MIN_VALUE;
+		int l = 0;
+		int r = arr.length - 1;
+		while (l < r) {
+			int width = r - l;
+			int height = Math.min(arr[l], arr[r]);
+			int area = width * height;
+			result = Math.max(area, result);
+			if (arr[l] < arr[r]) {
+				l++;
+			} else {
+				r--;
+			}
+		}
+		return result;
+	}
+
 }

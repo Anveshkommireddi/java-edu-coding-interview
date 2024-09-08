@@ -11,7 +11,8 @@ public class EmployeeFreeTime {
 		List<List<Interval>> schedule = Arrays.asList(
 				Arrays.asList(new Interval(1, 3), new Interval(6, 9), new Interval(10, 11)),
 				Arrays.asList(new Interval(3, 4), new Interval(7, 12)),
-				Arrays.asList(new Interval(1, 3), new Interval(7, 10)), Arrays.asList(new Interval(1, 4)),
+				Arrays.asList(new Interval(1, 3), new Interval(7, 10)), 
+				Arrays.asList(new Interval(1, 4)),
 				Arrays.asList(new Interval(7, 10), new Interval(11, 12)));
 		List<Interval> result = employeeFreeTime(schedule);
 		System.out.println(result.size());

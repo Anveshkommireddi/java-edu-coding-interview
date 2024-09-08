@@ -7,7 +7,7 @@ public class PowerOfANumber {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PowerOfANumber.class);
 
-	private static final int MOD = 1000000007;
+	private static final int MOD = 1_00_00_00_007;
 
 	public static void main(String[] args) {
 		int a = 12;

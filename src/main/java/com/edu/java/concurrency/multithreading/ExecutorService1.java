@@ -30,6 +30,7 @@ public class ExecutorService1 {
 
 		List<Future<Integer>> futuresList = new ArrayList<>();
 		ExecutorService futureExecutorService = Executors.newFixedThreadPool(preferredThreadCount);
+		ExecutorService virtualThreadService = Executors.newVirtualThreadPerTaskExecutor();
 		try {
 			for (int i = 0; i < preferredThreadCount; i++) {
 				Future<Integer> integerFuture = futureExecutorService.submit(new CallableTask<Integer>(i));

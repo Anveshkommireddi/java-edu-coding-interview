@@ -8,7 +8,7 @@ public class DiningPhilosophers {
 	private static Random random = new Random(System.currentTimeMillis());
 
 	private Semaphore[] forks = new Semaphore[5];
-	
+
 	private Semaphore maxDiners = new Semaphore(4);
 
 	public DiningPhilosophers() {
@@ -20,7 +20,6 @@ public class DiningPhilosophers {
 	}
 
 	public void lifecycleOfPhilosopher(int id) throws InterruptedException {
-
 		while (true) {
 			contemplate();
 			eat(id);
@@ -32,6 +31,7 @@ public class DiningPhilosophers {
 	}
 
 	void eat(int id) throws InterruptedException {
+
 		maxDiners.acquire();
 
 		forks[id].acquire();
@@ -52,42 +52,18 @@ public class DiningPhilosophers {
 	}
 
 	public static void runTest() throws InterruptedException {
+
 		final DiningPhilosophers dp = new DiningPhilosophers();
 
-		Thread p1 = new Thread(new Runnable() {
+		Thread p1 = new Thread(() -> startPhilosoper(dp, 0));
 
-			public void run() {
-				startPhilosoper(dp, 0);
-			}
-		});
+		Thread p2 = new Thread(() -> startPhilosoper(dp, 1));
 
-		Thread p2 = new Thread(new Runnable() {
+		Thread p3 = new Thread(() -> startPhilosoper(dp, 2));
 
-			public void run() {
-				startPhilosoper(dp, 1);
-			}
-		});
+		Thread p4 = new Thread(() -> startPhilosoper(dp, 3));
 
-		Thread p3 = new Thread(new Runnable() {
-
-			public void run() {
-				startPhilosoper(dp, 2);
-			}
-		});
-
-		Thread p4 = new Thread(new Runnable() {
-
-			public void run() {
-				startPhilosoper(dp, 3);
-			}
-		});
-
-		Thread p5 = new Thread(new Runnable() {
-
-			public void run() {
-				startPhilosoper(dp, 4);
-			}
-		});
+		Thread p5 = new Thread(() -> startPhilosoper(dp, 4));
 
 		p1.start();
 		p2.start();
