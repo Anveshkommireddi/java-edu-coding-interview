@@ -31,4 +31,25 @@ public class ScheduleTask {
 		return result;
 	}
 
+	public static int tasks2(List<List<Integer>> tasksList) {
+		int result = Integer.MAX_VALUE;
+		// sort the tasks by start time
+		Collections.sort(tasksList, (task1, task2) -> task1.get(0) - task2.get(0));
+		PriorityQueue<List<Integer>> pq = new PriorityQueue<>((task1, task2) -> {
+			if (task2.get(1) == task1.get(1))
+				return task1.get(0) - task1.get(0);
+			else
+				return task1.get(1) - task2.get(1);
+		});
+		// [[1,7], [5,6], [6,7], [8,13], [10,14]]
+		for(List<Integer> task : tasksList) {
+			while(!pq.isEmpty() && task.get(0) >= pq.peek().get(1)) {
+				pq.poll();
+			}
+			pq.offer(task);
+			result = Math.max(pq.size(), result);
+		}
+		return result;
+	}
+
 }

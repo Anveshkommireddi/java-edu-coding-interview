@@ -10,6 +10,7 @@ public class DeadLockExample {
 		synchronized (lock1) {
 			System.out.println("Method1: Holding lock1...");
 			method2();
+			System.out.println("Method1: Completed...");
 		}
 	}
 
@@ -17,6 +18,7 @@ public class DeadLockExample {
 		synchronized (lock2) {
 			System.out.println("Method2: Holding lock2...");
 			method1();
+			System.out.println("Method2: Completed...");
 		}
 	}
 

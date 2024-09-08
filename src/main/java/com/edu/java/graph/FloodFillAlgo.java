@@ -1,5 +1,6 @@
 package com.edu.java.graph;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -18,7 +19,9 @@ public class FloodFillAlgo {
 		int sc = 1;
 		int color = 2;
 		int[][] result = floodFill(image, sr, sc, color);
-		LOGGER.info("Result is {}", result);
+		for(int[] row : result) {
+			LOGGER.info("{}", Arrays.toString(row));
+		}
 	}
 
 	private static int[][] floodFill(int[][] image, int sr, int sc, int color) {

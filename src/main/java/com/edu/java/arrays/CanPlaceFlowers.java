@@ -26,7 +26,7 @@ public class CanPlaceFlowers {
 				flowerbed[i] = 1;
 			}
 		}
-		return !(n > 0);
+		return n <= 0;
 	}
 
 }

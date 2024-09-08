@@ -13,7 +13,8 @@ public class Test {
 		// cip.calculate("12-( -2)");
 		// groupAnagrams();
 		// basicCalculator2();
-		searchInSortedRotatedArray();
+		// searchInSortedRotatedArray();
+		List<Integer> intvalsList = Arrays.asList(3, 1, 8, 20, 0, 100, 3, 6);
 	}
 
 	private static void searchInSortedRotatedArray() {

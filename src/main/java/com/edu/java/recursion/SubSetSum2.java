@@ -13,7 +13,11 @@ public class SubSetSum2 {
 
 	public static void main(String[] args) {
 		int[] input = { 2, 1, 2 };
-		List<List<Integer>> result = generateUniqueSubSets(input);
+//		List<List<Integer>> result = generateUniqueSubSets(input);
+		Arrays.sort(input);
+		List<List<Integer>> result = new ArrayList<>();
+		List<Integer> currSet = new ArrayList<>();
+		generateUniqueSubSetsLoop(input, 0, currSet, result);
 		LOGGER.info("Result is :: {}", result);
 	}
 

@@ -34,6 +34,7 @@ public class BasicCalculator2 {
 					stack.push(sign);
 					res = 0;
 					sign = 1;
+					num = 0;
 				} else if (currChar == ')') {
 					res += num * sign;
 					res *= stack.pop();

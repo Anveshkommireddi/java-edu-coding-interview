@@ -26,7 +26,7 @@ public class Permutation {
 			return;
 		}
 		for (int currIdx = startIdx; currIdx < input.length; currIdx++) {
-			if(currIdx > startIdx && input[currIdx] == input[currIdx-1])
+			if (currIdx > startIdx && input[currIdx] == input[currIdx - 1])
 				continue;
 			swap(input, startIdx, currIdx);
 			currSet.add(input[startIdx]);

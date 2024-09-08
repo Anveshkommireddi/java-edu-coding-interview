@@ -35,6 +35,7 @@ public class Java8Comparator {
 										  entry -> entry.getValue(),
 										  (oldKey, newKey) -> oldKey, () -> new LinkedHashMap<>()))
 				.forEach((key, value) -> System.out.println(key + "=" + value));
+		
 
 	}
 

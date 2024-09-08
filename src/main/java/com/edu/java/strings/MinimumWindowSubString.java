@@ -10,8 +10,8 @@ public class MinimumWindowSubString {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MinimumWindowSubString.class);
 
 	public static void main(String[] args) {
-		String input = "input";
-		String pattern = "pattern";
+		String input = "ADOBECODEBANC";
+		String pattern = "ABC";
 		String result = minWindow(input, pattern);
 		LOGGER.info("Result is {}", result);
 	}

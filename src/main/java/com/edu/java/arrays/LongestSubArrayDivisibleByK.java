@@ -12,7 +12,7 @@ public class LongestSubArrayDivisibleByK {
 
 	public static void main(String[] args) {
 		int k = 8;
-		int[] arr = { -9, 0, 0, 0, 9 };
+		int[] arr = {1, 1, 1, 1, 7};
 		int result = longSubarrWthSumDivByK(arr, k);
 		LOGGER.info("Result is {}", result);
 	}
