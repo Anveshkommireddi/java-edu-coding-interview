@@ -8,7 +8,7 @@ public class MaxProductSubArray {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MaxProductSubArray.class);
 
 	public static void main(String[] args) {
-		int[] nums = { 2, 3, -2, 4 };
+		int[] nums = {-2, 0, -1};
 		int result = maxProductSubArray(nums);
 		LOGGER.info("Result is {}", result);
 	}
@@ -16,7 +16,7 @@ public class MaxProductSubArray {
 	private static int maxProductSubArray(int[] nums) {
 		int currMaxProduct = 1;
 		int currMinProduct = 1;
-		int maxProduct = nums[0];
+		int maxProduct = Integer.MIN_VALUE;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] == 0) {
 				currMaxProduct = 1;

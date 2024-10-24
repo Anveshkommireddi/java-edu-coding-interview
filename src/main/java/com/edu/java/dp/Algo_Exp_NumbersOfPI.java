@@ -25,8 +25,8 @@ public class Algo_Exp_NumbersOfPI {
 		Set<String> nums = Arrays.asList(numbers).stream().collect(Collectors.toSet());
 		int[] mem = new int[pi.length() + 1];
 		Arrays.fill(mem, -1);
-		//int count = numsOfPiHelper(pi, nums, 0);
-		int count = numsOfPiHelperMem(pi, nums, 0, mem);
+		int count = numsOfPiHelper(pi, nums, 0);
+		//int count = numsOfPiHelperMem(pi, nums, 0, mem);
 		return count == 1000000007 ? -1 : count-1;
 	}
 	
@@ -37,7 +37,7 @@ public class Algo_Exp_NumbersOfPI {
 		for(int idx = startIdx + 1; idx <= pi.length(); idx++) {
 			String sub = pi.substring(startIdx, idx);
 			if(nums.contains(sub)) {
-				count = Math.min(1 + numsOfPiHelper(pi, nums, idx), count);
+				count = Math.min(1 + numsOfPiHelperMem(pi, nums, idx, mem), count);
 			}
 		}
 		return mem[startIdx] = count;

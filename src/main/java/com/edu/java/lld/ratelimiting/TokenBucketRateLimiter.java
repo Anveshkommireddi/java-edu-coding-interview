@@ -6,13 +6,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class RateLimiter {
+public class TokenBucketRateLimiter {
 
 	private final int maxTokens;
 	private final int refillRate; // tokens per second
 	private final Map<String, UserBucket> userBuckets;
 
-	public RateLimiter(int maxTokens, int refillRate) {
+	public TokenBucketRateLimiter(int maxTokens, int refillRate) {
 		this.maxTokens = maxTokens;
 		this.refillRate = refillRate;
 		this.userBuckets = new ConcurrentHashMap<>();
@@ -56,7 +56,7 @@ public class RateLimiter {
 	}
 
 	public static void main(String[] args) {
-		RateLimiter rateLimiter = new RateLimiter(5, 2); // 5 max tokens, 2 tokens per second
+		TokenBucketRateLimiter rateLimiter = new TokenBucketRateLimiter(5, 2); // 5 max tokens, 2 tokens per second
 
 		Runnable requestTask = () -> {
 			String userId = "user1"; // Simulating requests from user1

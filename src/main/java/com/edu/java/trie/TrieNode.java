@@ -1,18 +1,22 @@
 package com.edu.java.trie;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class TrieNode {
-
-	Map<Integer, TrieNode> child = new HashMap<>();
 	
-	Map<Integer, Integer> count = new HashMap<>();
+	char curr;
 
-	boolean isEnd;
+	TrieNode[] children;
 
-	@Override
-	public String toString() {
-		return "TrieNode [child=" + child + ", count=" + count + ", isEnd=" + isEnd + "]";
+	boolean word;
+
+	public TrieNode() {
+		this.curr = '-';
+		this.children = new TrieNode[26];
+		this.word = false;
+	}
+	
+	public TrieNode(char curr) {
+		this.curr = curr;
+		this.children = new TrieNode[26];
+		this.word = false;
 	}
 }

@@ -34,8 +34,9 @@ public class InsertDeleteGetRandomn {
 			return false;
 		int reqListIdx = valIdxMap.get(val);
 		int lastVal = valuesList.get(valuesList.size() - 1);
-		valuesList.add(reqListIdx, lastVal);
+		valuesList.set(reqListIdx, lastVal);
 		valuesList.remove(valuesList.size() - 1);
+		
 		valIdxMap.remove(val);
 		valIdxMap.put(lastVal, reqListIdx);
 		return true;

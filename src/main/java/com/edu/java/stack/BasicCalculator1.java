@@ -11,7 +11,7 @@ public class BasicCalculator1 {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BasicCalculator1.class);
 
 	public static void main(String[] args) {
-		String s = "12-(-3+2)";
+		String s = "12-3*4/2";
 		int result = eval(s);
 		LOGGER.info("Result is {}", result);
 	}
